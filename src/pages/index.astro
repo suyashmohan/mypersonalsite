@@ -1,15 +1,21 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts", ({ data }) => {
+  return data.draft !== true;
+});
+posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Welcome to my site">
+  {
+    posts.map(({ slug, data }) => (
+      <a href={`/posts/${slug}`} class="hover:underline">
+        <h1 class="">{data.title}</h1>
+      </a>
+    ))
+  }
+</MainLayout>
