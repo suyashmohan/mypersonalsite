@@ -11,10 +11,20 @@ posts.sort(
 ---
 
 <MainLayout title="Welcome to my site">
+  <div class="border-b pb-4">
+    Hello, I'm Suyash Mohan, a software developer with deep passion for building
+    robust and scalable software solutions.
+  </div>
+  <div class="pt-4">
+    <span class="text-lg text-gray-400 border-b">List of my blog posts</span>
+  </div>
   {
     posts.map(({ slug, data }) => (
       <div class="py-4">
-        <a href={`/posts/${slug}`} class="hover:underline">
+        <a
+          href={`/posts/${slug}`}
+          class="hover:border-b border-gray-900 text-lg"
+        >
           {data.title}
         </a>
         <div class="text-sm text-gray-400">{data.date.toDateString()}</div>
