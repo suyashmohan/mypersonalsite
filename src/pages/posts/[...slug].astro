@@ -17,9 +17,9 @@ const { Content } = await post.render();
 ---
 
 <MainLayout title={post.data.title}>
-  <article class="prose">
+  <article class="prose prose-base max-w-none">
     <h1>{post.data.title}</h1>
-    <div class="text-sm text-gray-400">{post.data.date}</div>
+    <div class="text-sm text-gray-400">{post.data.date.toDateString()}</div>
     <Content />
   </article>
 </MainLayout>

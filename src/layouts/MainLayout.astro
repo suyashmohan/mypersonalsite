@@ -1,4 +1,5 @@
 ---
+import "@fontsource/oxygen";
 const { title } = Astro.props;
 ---
 
@@ -8,15 +9,14 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link
-      href="https://fonts.bunny.net/css?family=inter:400"
-      rel="stylesheet"
-    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
   </head>
-  <body class="font-inter container max-w-screen-md mx-auto">
+  <body class="container max-w-screen-md mx-auto bg-gray-50">
     <header class="mb-4 py-4 border-b">
+      <div class="py-8">
+        <div class="text-3xl font-bold">Suyash Mohan</div>
+      </div>
       <nav>
         <ul class="flex flex-row justify-between">
           <ol><a href="/">Home</a></ol>
@@ -24,6 +24,6 @@ const { title } = Astro.props;
       </nav>
     </header>
     <slot />
-    <footer class="mt-4 py-4 border-t">Copyright 2023</footer>
+    <footer class="mt-4 py-4 border-t">Copyright 2023 - Suyash Mohan</footer>
   </body>
 </html>

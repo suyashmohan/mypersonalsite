@@ -13,9 +13,12 @@ posts.sort(
 <MainLayout title="Welcome to my site">
   {
     posts.map(({ slug, data }) => (
-      <a href={`/posts/${slug}`} class="hover:underline">
-        <h1 class="">{data.title}</h1>
-      </a>
+      <div class="py-4">
+        <a href={`/posts/${slug}`} class="hover:underline">
+          {data.title}
+        </a>
+        <div class="text-sm text-gray-400">{data.date.toDateString()}</div>
+      </div>
     ))
   }
 </MainLayout>
